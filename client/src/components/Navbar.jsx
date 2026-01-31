@@ -6,37 +6,53 @@ const Navbar = () => {
     const { user, logout } = useAuth();
 
     return (
-        <nav className="bg-white shadow-md">
+        <nav className="bg-brand-light pt-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between h-16">
-                    <div className="flex">
-                        <Link to="/" className="flex-shrink-0 flex items-center">
-                            <span className="text-2xl font-bold text-blue-600">ElderCare</span>
+                <div className="flex justify-between items-center h-16">
+                    {/* Logo */}
+                    <div className="flex-shrink-0 flex items-center gap-2">
+                        <div className="w-8 h-8 bg-gray-900 rounded-full grid grid-cols-2 gap-0.5 p-1.5">
+                            <div className="bg-white rounded-full"></div>
+                            <div className="bg-white rounded-full"></div>
+                            <div className="bg-white rounded-full"></div>
+                            <div className="bg-brand rounded-full"></div>
+                        </div>
+                        <Link to="/" className="text-2xl font-bold text-gray-900 tracking-tight">
+                            Careon
                         </Link>
                     </div>
+
+                    {/* Center Links (Desktop) */}
+                    <div className="hidden md:flex space-x-8">
+                        <Link to="/" className="text-gray-600 hover:text-gray-900 font-medium">Home</Link>
+                        <a href="#" className="text-gray-600 hover:text-gray-900 font-medium">Service</a>
+                        <a href="#" className="text-gray-600 hover:text-gray-900 font-medium">Technology</a>
+                    </div>
+
+                    {/* Right Actions */}
                     <div className="flex items-center">
                         {user ? (
                             <>
-                                <span className="text-gray-700 mr-4">Hello, {user.name}</span>
+                                <span className="text-gray-700 mr-4 font-medium hidden sm:block">Hi, {user.name}</span>
                                 <button
                                     onClick={logout}
-                                    className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
+                                    className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-full text-sm font-semibold transition"
                                 >
                                     Logout
                                 </button>
                             </>
                         ) : (
-                            <>
-                                <Link to="/login" className="text-gray-700 hover:text-blue-600 px-3 py-2">
+                            <div className="flex items-center gap-4">
+                                <Link to="/login" className="text-gray-900 font-semibold hover:underline">
                                     Login
                                 </Link>
                                 <Link
                                     to="/register"
-                                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded ml-2"
+                                    className="bg-gray-900 hover:bg-gray-800 text-white px-5 py-2.5 rounded-full font-medium transition shadow-lg"
                                 >
-                                    Register
+                                    Sign Up
                                 </Link>
-                            </>
+                            </div>
                         )}
                     </div>
                 </div>
