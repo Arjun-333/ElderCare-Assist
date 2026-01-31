@@ -24,6 +24,7 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/caregivers', require('./routes/caregiverRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
+app.use('/api/bookings', require('./routes/bookingRoutes'));
 
 app.get('/', (req, res) => {
     res.send('ElderCare-Assist API is running');
