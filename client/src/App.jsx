@@ -1,17 +1,31 @@
-import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
     return (
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-            <div className="text-center">
-                <h1 className="text-4xl font-bold text-blue-600 mb-4">ElderCare-Assist</h1>
-                <p className="text-lg text-gray-700">Connecting families with verified caregivers.</p>
-                <button className="mt-6 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                    Get Started
-                </button>
-            </div>
-        </div>
-    )
+        <AuthProvider>
+            <Router>
+                <div className="min-h-screen bg-gray-50 font-sans text-gray-900">
+                    <Navbar />
+                    <Routes>
+                        <Route path="/" element={
+                            <div className="min-h-screen flex items-center justify-center">
+                                <div className="text-center">
+                                    <h1 className="text-4xl font-bold text-blue-600 mb-4">ElderCare-Assist</h1>
+                                    <p className="text-lg text-gray-700">Connecting families with verified caregivers.</p>
+                                </div>
+                            </div>
+                        } />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                    </Routes>
+                </div>
+            </Router>
+        </AuthProvider>
+    );
 }
 
-export default App
+export default App;
