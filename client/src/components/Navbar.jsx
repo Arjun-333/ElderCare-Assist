@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
@@ -24,9 +24,16 @@ const Navbar = () => {
 
                     {/* Center Links (Desktop) */}
                     <div className="hidden md:flex space-x-8">
-                        <Link to="/" className="text-gray-600 hover:text-gray-900 font-medium">Home</Link>
-                        <a href="#" className="text-gray-600 hover:text-gray-900 font-medium">Service</a>
-                        <a href="#" className="text-gray-600 hover:text-gray-900 font-medium">Technology</a>
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) =>
+                                isActive ? "text-gray-900 font-bold border-b-2 border-brand-dark pb-1" : "text-gray-600 hover:text-gray-900 font-medium transition"
+                            }
+                        >
+                            Home
+                        </NavLink>
+                        <a href="#" className="text-gray-600 hover:text-gray-900 font-medium transition">Service</a>
+                        <a href="#" className="text-gray-600 hover:text-gray-900 font-medium transition">Technology</a>
                     </div>
 
                     {/* Right Actions */}
@@ -43,12 +50,19 @@ const Navbar = () => {
                             </>
                         ) : (
                             <div className="flex items-center gap-4">
-                                <Link to="/login" className="text-gray-900 font-semibold hover:underline">
+                                <NavLink
+                                    to="/login"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "text-gray-900 font-bold underline decoration-2 decoration-brand underline-offset-4"
+                                            : "text-gray-900 font-semibold hover:text-gray-700 transition"
+                                    }
+                                >
                                     Login
-                                </Link>
+                                </NavLink>
                                 <Link
                                     to="/register"
-                                    className="bg-gray-900 hover:bg-gray-800 text-white px-5 py-2.5 rounded-full font-medium transition shadow-lg"
+                                    className="bg-gray-900 hover:bg-gray-800 text-white px-5 py-2.5 rounded-full font-medium transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                                 >
                                     Sign Up
                                 </Link>
