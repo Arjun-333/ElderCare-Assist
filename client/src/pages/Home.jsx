@@ -40,9 +40,12 @@ const Home = () => {
                         >
                             Book a Schedule
                         </button>
-                        <button className="bg-white border border-gray-200 text-gray-700 font-semibold px-8 py-4 rounded-full hover:shadow-md transition">
+                        <a
+                            href="#services"
+                            className="bg-white border border-gray-200 text-gray-700 font-semibold px-8 py-4 rounded-full hover:shadow-md transition inline-block"
+                        >
                             Explore Service
-                        </button>
+                        </a>
                     </div>
 
                     {/* Avatars */}
@@ -96,7 +99,7 @@ const Home = () => {
             </div>
 
             {/* Why Choose Us Section */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white rounded-t-[50px]">
+            <div id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white rounded-t-[50px]">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-10">
                     <h2 className="text-4xl font-bold text-gray-900">
                         Because Your Health <br /> Deserves the Best
