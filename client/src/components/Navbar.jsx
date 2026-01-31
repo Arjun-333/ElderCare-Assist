@@ -33,7 +33,7 @@ const Navbar = () => {
                             Home
                         </NavLink>
                         <a href="/#services" className="text-gray-600 hover:text-gray-900 font-medium transition">Service</a>
-                        <a href="/#services" className="text-gray-600 hover:text-gray-900 font-medium transition">Technology</a>
+                        <a href="/#technology" className="text-gray-600 hover:text-gray-900 font-medium transition">Technology</a>
                     </div>
 
                     {/* Right Actions */}
